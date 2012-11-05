@@ -1,9 +1,7 @@
 <?php
 	
-//	$dbhost = '127.0.0.1';
 	$dbhost = 'localhost';
 	$dbuser = 'root';
-	$dbpass = '';
-	$dbname = 'directory';
-
+	$dbpass = 'nq777TM3,b';
+	$dbname = 'Employees';
 ?>

@@ -1,27 +1,23 @@
 var serviceURL = "";
 var employees;
 
-$('#employeeListPage').bind('pageinit', function(event) {
-    $(document).ready()
-    {
-        setTimeout(function (){if(serviceURL=="") //fix timeout problem
-        {
-            getIP();
-        }
-            }, 5000)
-    };
-    getEmployeeList()
+$('#employeeListPage').bind('pageinit', function(event) 
+{
+        getIP();
 });
 
 function getIP()//Enter the ip address of the sql server since it is dynamic 
 {
-    serviceURL = "http://"+prompt("Please enter the sql server ip address","127.0.0.1")+"/services/";
+  setTimeout(function (){if(serviceURL=="") //fix timeout problem
+    {
+        serviceURL = "http://"+prompt("Please enter the sql server ip address","127.0.0.1")+"/services/";
+        getEmployeeList()
+    }
+  }, 5000)
 }
 
 function getEmployeeList() 
 {
-    $document.ready()//fix timeout issue
-    {
     $.getJSON(serviceURL + 'getemployees.php', function(data) {
 		$('#employeeList li').remove();
 		employees = data.items;
@@ -34,5 +30,4 @@ function getEmployeeList()
 		});
 		$('#employeeList').listview('refresh');
 	});
-    };
 }
