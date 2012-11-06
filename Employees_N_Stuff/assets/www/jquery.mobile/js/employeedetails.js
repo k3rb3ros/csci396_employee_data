@@ -1,6 +1,7 @@
+alert("displaythis");
 $('#detailsPage').live('pageshow', function(event) {
 	var id = getUrlVars()["id"];
-	$.getJSON(serviceURL + 'getemployee.php?id='+id, displayEmployee);
+	$.getJSON( serviceURL + 'getemployee.php?id='+id, displayEmployee);
 });
 
 function displayEmployee(data) {

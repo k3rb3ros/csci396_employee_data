@@ -1,23 +1,12 @@
-var serviceURL = "";
+var serviceURL = "http://54.245.102.59/services/";
+
 var employees;
 
 $('#employeeListPage').bind('pageinit', function(event) {
-    getIP();
+	getEmployeeList();
 });
 
-function getIP()//Enter the path to the sql server since I don't own a domain name
-{
-    setTimeout(function()
-  { if(serviceURL=="") //fix timeout waiting for user choice problem
-    {
-	serviceURL = "http://"+prompt("Please enter the path to the sql server","54.245.102.59/directory/services/");
-    	getEmployeeList();
-    }
-  }, 100)
-}
-
-function getEmployeeList() 
-{
+function getEmployeeList() {
 	$.getJSON(serviceURL + 'getemployees.php', function(data) {
 		$('#employeeList li').remove();
 		employees = data.items;
